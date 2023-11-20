@@ -20,7 +20,7 @@ public class DemoApplication {
 		int nums[] = {1,1,-2,6};
 		System.out.println(increasingTriplet(nums));
 		char chars[] = {'a','a','b','b','c','c','b'};
-		compress(chars);
+		compress2(chars);
 	}
 
 	public static String reverseVowels(String s) {
@@ -97,6 +97,24 @@ public class DemoApplication {
 		}
 
 		return output.length();
+	}
+
+	public static int compress2(char[] chars) {
+		int i = 0, res = 0;
+		while (i < chars.length) {
+			int groupLength = 1;
+			while (i + groupLength < chars.length && chars[i + groupLength] == chars[i]) {
+				groupLength++;
+			}
+			chars[res++] = chars[i];
+			if (groupLength > 1) {
+				for (char c : Integer.toString(groupLength).toCharArray()) {
+					chars[res++] = c;
+				}
+			}
+			i += groupLength;
+		}
+		return res;
 	}
 
 
