@@ -17,6 +17,8 @@ public class DemoApplication {
 		reverseVowels("race car");
 		int arr[]={1};
 		moveZeroes(arr);
+		int nums[] = {1,1,-2,6};
+		System.out.println(increasingTriplet(nums));
 	}
 
 	public static String reverseVowels(String s) {
@@ -53,4 +55,18 @@ public class DemoApplication {
 				}
 			}
 		}
+
+	public static boolean increasingTriplet(int[] nums) {
+		int min1=Integer.MAX_VALUE;
+		int min2=Integer.MAX_VALUE;
+			for(int n:nums){
+				if(n<=min1)min1=n;
+				else if(n<min2)min2=n;
+				else if(n>min2) return true;
+			}
+
+		return false;
+	}
+
+
 }
