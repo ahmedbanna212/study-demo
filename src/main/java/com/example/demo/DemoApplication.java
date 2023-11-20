@@ -19,6 +19,8 @@ public class DemoApplication {
 		moveZeroes(arr);
 		int nums[] = {1,1,-2,6};
 		System.out.println(increasingTriplet(nums));
+		char chars[] = {'a','a','b','b','c','c','b'};
+		compress(chars);
 	}
 
 	public static String reverseVowels(String s) {
@@ -67,6 +69,37 @@ public class DemoApplication {
 
 		return false;
 	}
+	public static int compress(char[] chars) {
+		String output="";
+		char currentChar=chars[0];
+		int counter=0;
+		for(int i=0;i<=chars.length-1;i++){
+			if (chars[i]!=currentChar ){
+
+				output+= String.valueOf(currentChar);
+				if(counter!=1)output+=String.valueOf(counter);
+
+				currentChar=chars[i];
+				counter=1;
+			}
+			else if(chars[i]==currentChar){
+				counter++;
+			}
+
+		}
+
+		output+= String.valueOf(currentChar);
+		if(counter!=1)output+=String.valueOf(counter);
+
+		for(int i=0;i<=output.length()-1;i++){
+			chars[i]=output.charAt(i);
+
+		}
+
+		return output.length();
+	}
+
+
 
 
 }
