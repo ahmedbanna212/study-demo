@@ -26,6 +26,8 @@ public class DemoApplication {
 
 		int numArray[] = {1,12,-5,-6,50,3};
 		findMaxAverage(numArray,4);
+		int sss[]={1,8,6,2,5,4,8,3,7};
+		maxArea(sss);
 	}
 
 	public static String reverseVowels(String s) {
@@ -174,5 +176,20 @@ public class DemoApplication {
 		else
 			return false;
 	}
-
+	public static int maxArea(int[] height) {
+		int i=0;
+		int j=height.length-1;
+		int max=0;
+			while(i!=j){
+				if(height[i]>height[j]){
+					if(max<(height[j]*(j-i)))max=(height[j]*(j-i));
+					j--;
+				}else{
+					if(max<(height[i]*(j-i)))
+						max=(height[i]*(j-i));
+					i++;
+				}
+			}
+		return max;
+	}
 }
