@@ -21,6 +21,11 @@ public class DemoApplication {
 		System.out.println(increasingTriplet(nums));
 		char chars[] = {'a','a','b','b','c','c','b'};
 		compress2(chars);
+		String test="weallloveyou";
+		maxVowels(test,7);
+
+		int numArray[] = {1,12,-5,-6,50,3};
+		findMaxAverage(numArray,4);
 	}
 
 	public static String reverseVowels(String s) {
@@ -118,6 +123,56 @@ public class DemoApplication {
 	}
 
 
+	public static int maxVowels(String s, int k) {
+		int vowels=0;
+		int max=0;
+		for(int i = 0;i<k;i++){
+			if(isVowels(s.charAt(i)))vowels++;
+			if(max<vowels)max=vowels;
+		}
+		for(int i = k;i<s.length();i++){
+			if(isVowels(s.charAt(i)))vowels++;
+			if(isVowels(s.charAt(i-k)))vowels--;
+			if(max<vowels)max=vowels;
+		}
+		return max;
+	}
+	public static boolean isVowels(char at){
+		if(at=='a'||at=='e'||at=='o'||at=='i'||at=='u') return true;
+		return false;
+	}
 
+
+	public static double findMaxAverage(int[] nums, int k) {
+		double avg=0;
+		double maxAvg=0;
+		for (int i=0;i<k;i++){
+			avg+=nums[i];
+		}
+		maxAvg=(avg/k);
+		for(int i=k;i<nums.length;i++){
+			avg-=nums[i-k];
+			avg+=nums[i];
+			if((avg/k)>maxAvg)maxAvg=(avg/k);
+		}
+		return maxAvg;
+	}
+	public boolean canPlaceFlowers(int[] flowerbed, int n) {
+		int flowers=0;
+		for(int i=0;i<flowerbed.length;i++){
+
+			if(flowerbed[i]==0){
+				if((i+1==flowerbed.length||flowerbed[i+1]==0)
+						&& (i==0||flowerbed[i-1]==0)){
+					flowerbed[i]=1;
+					flowers++;
+				}
+			}
+		}
+
+		if(flowers>=n)return true;
+		else
+			return false;
+	}
 
 }
