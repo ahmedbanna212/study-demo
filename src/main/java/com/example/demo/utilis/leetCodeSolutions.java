@@ -196,4 +196,18 @@ public class leetCodeSolutions {
 
         return max;
     }*/
+    public boolean isSubsequence(String s, String t) {
+        int count=0,i=t.length()-1,j=s.length()-1;
+
+        while(i>=0&&j>=0){
+            if(s.charAt(j)==t.charAt(i)){
+                count++;
+                i--;
+                j--;
+            }else{
+                i--;
+            }
+        }
+        return count==s.length();
+    }
 }

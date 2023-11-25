@@ -16,6 +16,8 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 		System.out.println("server up and running");
 		leetCodeSolutions object=new leetCodeSolutions();
+		object.isSubsequence("abc"
+				,"ahbgdc");
 	}
 
 
