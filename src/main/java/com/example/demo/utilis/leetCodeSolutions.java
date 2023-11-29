@@ -210,4 +210,14 @@ public class leetCodeSolutions {
         }
         return count==s.length();
     }
+
+   /* public int longestOnes(int[] nums, int k) {
+        int counter=0;
+        int current=0;
+
+        for(int i=0;i<k;i++){
+            nums[i]
+        }
+    }*/
+
 }
