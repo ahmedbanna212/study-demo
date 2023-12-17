@@ -8,4 +8,8 @@ public class footballCouch implements couch{
     public String getMotive() {
         return "testing football couch";
     }
+
+    public footballCouch() {
+        System.out.println("football constructor");
+    }
 }

@@ -12,7 +12,8 @@ public class couchController {
     couch couch;
 
     @Autowired
-    public couchController(@Qualifier("footballCouch") couch theCouch){
+    public couchController(@Qualifier("footballCouch") //annotation to specify the implementation you need for the interface if the interface has more than one implementation
+                               couch theCouch){
         this.couch=theCouch;
     }
 
